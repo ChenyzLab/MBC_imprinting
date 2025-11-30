@@ -1,3 +1,3 @@
 This folder contains:
-scMulti-omics_analysis_scripts.R: R script to analyze our single-cell sequencing data.
+scMulti-omics_analysis_script.R: R script to analyze our single-cell sequencing data.
 Circos_prepare.R: R script to generate files for circos plot.
