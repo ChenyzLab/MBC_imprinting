@@ -1289,7 +1289,7 @@ rm(BC_heat,row_annotation,col_fun,row_split,col_annotation,
    expr_matrix,AgBC,gene_groups,genes_to_plot,ht,gene_list)
 
 
-#### 05.2 Add module score and GSEA ####
+#### 05.2 GSEA ####
 # Loading the gene sets from the MSigDB database
 m_df<- msigdbr(species = "Homo sapiens", category = "H") #hallmark gene sets
 m_df2<- msigdbr(species = "Homo sapiens", category = "C2",subcategory = "CP:KEGG") #curated gene sets
@@ -2015,5 +2015,6 @@ treesToPDF(plots_ag, file="./tree/FigS7H.HVI_trees_antigen.pdf", nrow=1, ncol=2,
 plots_Iso = plotTrees(clones, tips = "Isotype",tipsize = 6,palette=custom_palette)
 plots_Iso[[1]]
 treesToPDF(plots_Iso, file="./tree/FigS7H.HVI_trees_Isotype.pdf", nrow=1, ncol=2,width = 7,height=2.5)
+
 
 
