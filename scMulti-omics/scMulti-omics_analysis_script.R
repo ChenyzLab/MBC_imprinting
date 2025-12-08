@@ -408,7 +408,7 @@ BC@meta.data$Isotype[BC@meta.data$sub_Isotype == "IGHM"] <- "IGHM"
 table(BC$Isotype)
 
 BC$RNA_snn_res.0.5 <- NULL
-saveRDS(BC,"./for_publication/result/BC_batch1.rds")
+saveRDS(BC,"BC_batch1.rds")
 rm(BCR,BCR_H,BCR_L,BCR_merge_batch1,metadata,singlet,BC)
 
 #### 03. Batch2 preprocesing ####
@@ -776,14 +776,14 @@ table(BC$Isotype)
 rm(BCR,BCR_H,BCR_L,BCR_merge_batch2,metadata)
 
 BC$RNA_snn_res.0.5 <- NULL
-saveRDS(BC,"./for_publication/result/BC_batch2.rds")
+saveRDS(BC,"BC_batch2.rds")
 
 
 #### 04. Merge 2 batch datasets, celltype annotation, add information and visualization ####
 #### 04.1 BC WNN ####
 # merge 2 batch dataset
-BC_batch1 <- readRDS("./for_publication/result/BC_batch1.rds") #load seurat obj preprocessed in section2
-BC_batch2 <- readRDS("./for_publication/result/BC_batch2.rds") #load seurat obj preprocessed in section3
+BC_batch1 <- readRDS("BC_batch1.rds") #load seurat obj preprocessed in section2
+BC_batch2 <- readRDS("BC_batch2.rds") #load seurat obj preprocessed in section3
 
 BC_batch1$batch <- "batch1"
 BC_batch2$batch <- "batch2"
@@ -907,7 +907,7 @@ BC$epitope[BC$antigen %in% c("BF7 RBD","Cross RBD","Ancestral RBD")] <- "RBD"
 BC$epitope[BC$antigen %in% c("BF7 NTD","Cross NTD","Ancestral NTD")] <- "NTD"
 BC$epitope[BC$antigen == "S2"] <- "S2"
 
-saveRDS(BC,file = "./for_publication/result_rm_abnormal_NAV/BC_merged.rds")
+saveRDS(BC,file = "BC_merged.rds")
 
 #### 04.3 Visualization of annotated B cells ####
 # Dimplot of WNN UMAP of total B cells
@@ -929,7 +929,7 @@ rm(BC_sub)
 # VlnPlot of B cell markers of protein level and RNA level
 DefaultAssay(BC) <- "Protein"
 p <- VlnPlot(BC, features = c("IgD","CD27.1","IgM","CD21","CD71","FCRL5.1","CD11C","CXCR5.1","CD38.1","rna_PRDM1"), ncol = 5,pt.size = 0,group.by = "subType",cols = BC_col)
-ggsave(p, filename = "./FigS4B.Vlnplot_BC_protein_expr.pdf", width = 20, height = 5)
+ggsave(p, filename = "FigS4B.Vlnplot_BC_protein_expr.pdf", width = 20, height = 5)
 
 # Visualize Ag+ cells in different samples on wnnUMAP
 Agneg <- BC@meta.data[BC$baiting == "Ag-","cell_id"]
@@ -2015,6 +2015,7 @@ treesToPDF(plots_ag, file="./tree/FigS7H.HVI_trees_antigen.pdf", nrow=1, ncol=2,
 plots_Iso = plotTrees(clones, tips = "Isotype",tipsize = 6,palette=custom_palette)
 plots_Iso[[1]]
 treesToPDF(plots_Iso, file="./tree/FigS7H.HVI_trees_Isotype.pdf", nrow=1, ncol=2,width = 7,height=2.5)
+
 
 
 
