@@ -131,26 +131,25 @@ def plot_highlight_res_logo(res, prefix, rownames=None, site_thres=0.0, force_pl
             pdf.savefig(bbox_inches='tight',pad_inches=0.5)
             plt.close()
 
-os.chdir("C:/Users/cchan/file/work/cls/Lab/03.WYY_DMS")
 df = pd.read_csv("./DMS/files/antibody_dms_merge_bycluster.csv")
 
 df_A = df[df['antibody'].isin(["A"])]
-plot_highlight_res_logo(df_A, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightA", site_thres=2.579376, width=3.4)
+plot_highlight_res_logo(df_A, "./DMS/figures/FigS.Mut_Trend/Logo_highlightA", site_thres=2.579376, width=3.4)
 df_B = df[df['antibody'].isin(["B"])]
-plot_highlight_res_logo(df_B, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightB", site_thres=2.067766, width=3.4)
+plot_highlight_res_logo(df_B, "./DMS/figures/FigS.Mut_Trend/Logo_highlightB", site_thres=2.067766, width=3.4)
 df_C = df[df['antibody'].isin(["C"])]
-plot_highlight_res_logo(df_C, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightC", site_thres=3.219874, width=3.4)
+plot_highlight_res_logo(df_C, "./DMS/figures/FigS.Mut_Trend/Logo_highlightC", site_thres=3.219874, width=3.4)
 df_D1 = df[df['antibody'].isin(["D1"])]
-plot_highlight_res_logo(df_D1, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightD1", site_thres=1.850396, width=3.4)
+plot_highlight_res_logo(df_D1, "./DMS/figures/FigS.Mut_Trend/Logo_highlightD1", site_thres=1.850396, width=3.4)
 df_D2 = df[df['antibody'].isin(["D2"])]
-plot_highlight_res_logo(df_D2, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightD2", site_thres=2.499534, width=3.4)
+plot_highlight_res_logo(df_D2, "./DMS/figures/FigS.Mut_Trend/Logo_highlightD2", site_thres=2.499534, width=3.4)
 df_E2 = df[df['antibody'].isin(["E2"])]
-plot_highlight_res_logo(df_E2, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightE2", site_thres=2.296488, width=3.4)
+plot_highlight_res_logo(df_E2, "./DMS/figures/FigS.Mut_Trend/Logo_highlightE2", site_thres=2.296488, width=3.4)
 df_E3 = df[df['antibody'].isin(["E3"])]
-plot_highlight_res_logo(df_E3, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightE3", site_thres=2.820647, width=3.4)
+plot_highlight_res_logo(df_E3, "./DMS/figures/FigS.Mut_Trend/Logo_highlightE3", site_thres=2.820647, width=3.4)
 df_F1 = df[df['antibody'].isin(["F1"])]
-plot_highlight_res_logo(df_F1, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightF1", site_thres=1.948153, width=3.4)
+plot_highlight_res_logo(df_F1, "./DMS/figures/FigS.Mut_Trend/Logo_highlightF1", site_thres=1.948153, width=3.4)
 df_F2 = df[df['antibody'].isin(["F2"])]
-plot_highlight_res_logo(df_F2, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightF2", site_thres=3.592498, width=3.4)
+plot_highlight_res_logo(df_F2, "./DMS/figures/FigS.Mut_Trend/Logo_highlightF2", site_thres=3.592498, width=3.4)
 df_F3 = df[df['antibody'].isin(["F3"])]
-plot_highlight_res_logo(df_F3, "./DMS/figures/FigS3D.Mut_Trend/Logo_highlightF3", site_thres=2.384762, width=3.4)
+plot_highlight_res_logo(df_F3, "./DMS/figures/FigS.Mut_Trend/Logo_highlightF3", site_thres=2.384762, width=3.4)
