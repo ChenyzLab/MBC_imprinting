@@ -21,7 +21,6 @@ Cross = "grey90"
 Ancestral = "grey95"
 cluster_col <- c("A" = "#086233","B" = "#FF4040","C" = "#FFDF33","D1" = "#4EDDA2","D2" = "#4BAA30",
                  "E2" = "#AA364E","E3" = "#5C1A14","F1" = "#C58F50","F2" = "#325099","F3" = "#8AA3C8")
-setwd("C:/Users/cchan/file/work/cls/Lab/03.WYY_DMS")
 
 #### 01. UAMP :cluster####
 mAb_embed <- read.csv("./DMS/processed_files/mAb_embed.csv")
@@ -66,7 +65,7 @@ p <- ggplot(mAb_embed, aes(x = UMAP1, y = UMAP2, color = manual_assign)) +
   )
 
 print(p)
-ggsave("./DMS/figures/Fig3A.UMAP_mAb.pdf", plot = p, width = 5.5, height = 5)
+ggsave("./DMS/figures/Fig.UMAP_mAb.pdf", plot = p, width = 5.5, height = 5)
 
 
 #### 02. Visualize mAb info ####
@@ -94,7 +93,7 @@ p <- ggplot(mAb_embed, aes(x = UMAP1, y = UMAP2,shape = BindingType,fill = BF7_N
   coord_fixed(ratio = 0.95)
 
 print(p)
-ggsave("./DMS/figures/Fig3B.UMAP_mAb_BF7NT50.pdf", plot = p, width = 5.5, height = 5)
+ggsave("./DMS/figures/Fig.UMAP_mAb_BF7NT50.pdf", plot = p, width = 5.5, height = 5)
 
 
 p <- ggplot(mAb_embed, aes(x = UMAP1, y = UMAP2,shape = BindingType, fill = Ancestral_NT50)) +
@@ -120,7 +119,7 @@ p <- ggplot(mAb_embed, aes(x = UMAP1, y = UMAP2,shape = BindingType, fill = Ance
   coord_fixed(ratio = 0.95)
 
 print(p)
-ggsave("./DMS/figures/Fig3B.UMAP_mAb_AncestralNT50.pdf", plot = p, width =5.5, height = 5)
+ggsave("./DMS/figures/Fig.UMAP_mAb_AncestralNT50.pdf", plot = p, width =5.5, height = 5)
 
 
 #### 02.2 Binder and Neutralizer distribution in each cluster ####
@@ -134,7 +133,7 @@ p <- ggplot(tt,aes(y = Freq, x = factor(cluster), fill = sample)) + geom_bar(sta
         axis.text.y=element_text(colour="black", size = rel(1.1)),legend.position = "right",axis.line.y = element_line(colour = "black", size = 0.5),
         legend.title = element_text(size = 10),panel.grid = element_blank(),panel.background = element_rect(fill = "white", color = NA))
 print(p)
-ggsave("./DMS/figures/Fig3C.Barplot_BindingType_bycluster.pdf", plot = p, width = 4, height = 3)
+ggsave("./DMS/figures/Fig.Barplot_BindingType_bycluster.pdf", plot = p, width = 4, height = 3)
 
 
 tt = as.data.frame(round(100*prop.table(x = table(mAb_embed$Neutralizer,mAb_embed$manual_main),margin = 2),2))
@@ -148,7 +147,7 @@ p <- ggplot(tt,aes(y = Freq, x = factor(cluster), fill = sample)) + geom_bar(sta
         axis.text.y=element_text(colour="black", size = rel(1.1)),legend.position = "right",axis.line.y = element_line(colour = "black", size = 0.5),
         legend.title = element_text(size = 10),panel.grid = element_blank(),panel.background = element_rect(fill = "white", color = NA))
 print(p)
-ggsave("./DMS/figures/Fig3C.Barplot_Neut_bycluster.pdf", plot = p, width = 4.3, height = 3)
+ggsave("./DMS/figures/Fig.Barplot_Neut_bycluster.pdf", plot = p, width = 4.3, height = 3)
 
 
 #### 02.3 sample distribution and cluster distribution ####
@@ -165,7 +164,7 @@ p <- ggplot(tt,aes(y = Freq, x = sample, fill = cluster)) + geom_bar(stat="ident
         axis.text.y=element_text(colour="black", size = rel(1.1)),legend.position = "right",axis.line.y = element_line(colour = "black", size = 0.5),
         legend.title = element_text(size = 10),panel.grid = element_blank(),panel.background = element_rect(fill = "white", color = NA))
 print(p)
-ggsave("./DMS/figures/Fig3F.Barplot_cluster_bysample.pdf", plot = p, width = 4, height = 3)
+ggsave("./DMS/figures/Fig.Barplot_cluster_bysample.pdf", plot = p, width = 4, height = 3)
 
 #### 02.4 epitope composition of Cross and BF7 mAbs ####
 sub_mAb_embed <- sub_mAb_embed[sub_mAb_embed$BindingType %in% c("Cross","BF.7"),]
@@ -184,7 +183,7 @@ p <- ggplot(tt,aes(y = Freq, x = sample, fill = cluster)) + geom_bar(stat="ident
         axis.text.y=element_text(colour="black", size = rel(1.1)),legend.position = "right",axis.line.y = element_line(colour = "black", size = 0.5),
         legend.title = element_text(size = 10),panel.grid = element_blank(),panel.background = element_rect(fill = "white", color = NA))
 print(p)
-ggsave("./DMS/figures/Fig3E.Barplot_epitope_distribution_inCrossBF7.pdf", plot = p, width = 4.5, height = 4)
+ggsave("./DMS/figures/Fig.Barplot_epitope_distribution_inCrossBF7.pdf", plot = p, width = 4.5, height = 4)
 
 
 #### 03. Plot mutation trend ####
@@ -264,7 +263,7 @@ for (cluster in c("A", "B", "C", "D1", "D2", "E2", "E3", "F1", "F2", "F3")) {
       segment.size = 0.5,
       max.overlaps = Inf
     )
-  ggsave(paste0("./DMS/figures/FigS3D.Mut_Trend/", cluster, ".pdf"), plot = p[[cluster]], width = 8, height = 3)
+  ggsave(paste0("./DMS/figures/FigS.Mut_Trend/", cluster, ".pdf"), plot = p[[cluster]], width = 8, height = 3)
 }
 
 #### 04. Plot Heatmap ####
@@ -500,7 +499,8 @@ Cohort_heatmap <- Heatmap(
 
 combined_heatmap <- Cluster_heatmap + main_heatmap + NT50_heatmap + Binding_heatmap + Cohort_heatmap
 
-pdf("./DMS/figures/Fig3D.Heatmap/Heatmap_mAb_site_score.pdf",width = 30,height = 12)
+pdf("./DMS/figures/Fig.Heatmap/Heatmap_mAb_site_score.pdf",width = 30,height = 12)
 draw(combined_heatmap, heatmap_legend_side = "right")
 dev.off()
+
 
