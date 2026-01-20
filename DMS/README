@@ -1,4 +1,4 @@
 This folder contains:
-pacbio: files to generate condon_variant_table_BF7.csv
-scripts: processing pipeline of DMS library, analysis and visualization code
-processed_files: sampleinfo of antibody and table for calculation and visualization
+pacbio folder: files to generate condon_variant_table_BF7.csv
+processed_files folder: sampleinfo of antibodies and tables for calculation and visualization
+scripts folder: processing pipeline of DMS library, analysis and visualization code
